@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .profile-card {
+            width: 300px;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        .profile-card img.profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #qrCode {
+            display: none;
+            margin-top: 15px;
+        }
+
+        #qrCode img {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-card" id="profileCard">
+
+        <img 
+            class="profile" 
+            src="https://scontent.fktm1-1.fna.fbcdn.net/v/t1.15752-9/805402763_1396543102447219_1405118965202771089_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_ohc=XSlMc5sGpWcQ7kNvwEP0_m7&_nc_oc=AdpCKyWh4pYVtMtE4hNAW6hyC8WPAbTAZN6LUPiApYXLhx7IrWgUfC3hrfazclQ4HCg&_nc_zt=23&_nc_ht=scontent.fktm1-1.fna&_nc_ss=7b6a8&oh=03_Q7cD6QGu_konyA8iw0YuepRATzhZJYM-GCkw5qlUkQ57olzNPw&oe=6AD02C43" 
+            alt="Profile Image"
+        >
+
+        <h2 id="displayName">Your Name</h2>
+        <p id="displayAddress">Your Address</p>
+
+        <input 
+            type="text" 
+            id="name" 
+            placeholder="Enter your name"
+        >
+
+        <input 
+            type="text" 
+            id="address" 
+            placeholder="Enter your address"
+        >
+
+        <br>
+
+        <button id="qrButton">
+            Show QR Code
+        </button>
+
+        <div id="qrCode">
+            <img 
+                src="https://tse1.mm.bing.net/th/id/OIP.x1rG101-okyo1Bi3y2QErwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                alt="QR Code"
+            >
+        </div>
+
+    </div>
+    <script>
+
+$(document).ready(function() {
+
+    // Update name and address
+    $("#name").change(function() {
+        $("#displayName").text($(this).val());
+        $("#profileCard").css("background-color", "lightblue");
+    });
+
+    $("#address").change(function() {
+        $("#displayAddress").text($(this).val());
+        $("#profileCard").css("background-color", "lightblue");
+    });
+
+
+    // Show and hide QR code
+    $("#qrButton").click(function() {
+
+        $("#qrCode").toggle();
+
+    });
+
+});
+
+</script>
+</body>
+</html>
