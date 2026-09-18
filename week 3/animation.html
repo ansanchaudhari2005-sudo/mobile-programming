@@ -3,7 +3,6 @@
 <head>
     <title>jQuery Box Animation</title>
 
-    <!-- jQuery Link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <style>
@@ -49,14 +48,21 @@
             $("#start").click(function () {
 
                 $("#box")
-                    .animate({ top: "250px" }, 1000)
-                    .css("background", "blue")
-                    .animate({ left: "400px" }, 1000)
-                    .css("background", "green")
-                    .animate({ top: "0px" }, 1000)
-                    .css("background", "orange")
-                    .animate({ left: "0px" }, 1000)
-                    .css("background", "red");
+                    .animate({ top: "250px" }, 1000, function () {
+                        $(this).css("background", "blue");
+                    })
+
+                    .animate({ left: "400px" }, 1000, function () {
+                        $(this).css("background", "green");
+                    })
+
+                    .animate({ top: "0px" }, 1000, function () {
+                        $(this).css("background", "orange");
+                    })
+
+                    .animate({ left: "0px" }, 1000, function () {
+                        $(this).css("background", "red");
+                    });
 
             });
 
